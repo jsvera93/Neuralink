@@ -1,0 +1,75 @@
+trap bye EXIT
+v="\e[1;92m"
+b="\e[1;39m"
+a="\e[0;32m"
+r="\e[1;91m"
+
+bye(){
+echo -e "\n$v[$b*$v]$b NeuraLink by Jesus Vera
+$v[$b*$v]$b ..... Fuck Society .....
+"
+}
+
+bannerN(){
+clear
+echo -e "$v"
+echo -e '             \e[1;92m_   _                      _     _       _    
+            | \ | | ___ _   _ _ __ __ _| |   (_)_ __ | | __
+            |  \| |/ _ \ | | |  __/ _` | |   | |  _ \| |/ /
+            | |\  |  __/ |_| | | | (_| | |___| | | | |   < \e[1;39m
+            |_| \_|\___|\__,_|_|  \__,_|_____|_|_| |_|_|\_\
+				create by Jesus Vera
+           
+\e[1;92m[\e[1;39m*\e[1;92m]\e[1;39m Pega tus enlaces ngrok y transformalos  \e[1;92m[\e[1;39m*\e[1;92m]
+'
+}
+
+links(){
+echo 
+echo 
+echo -e "$v[$b*$v]$b Enlace Camuflado:"
+google="${a}https://www.google.com/url?q-@$link2"
+fb="${a}https://facebook.com-@$link2"
+twi="${a}https://mobile.twitter.com/login-@$link2"
+you="${a}https://m.youtube.com/feed/trending?gl=MX&hl=es-419-@$link2"
+tik="${a}https://www.tiktok.com/discover?lang=es-@$link2"
+mail="${a}https://www.google.com/intl/es-419/gmail/about/-@$link2"
+insta="${a}https://www.instagram.com/accounts/login/?hl=es-la-@$link2"
+}
+
+menu(){
+clear
+bannerN
+echo -e "$v[$b*$v]$b Pega el enlace aqui:"
+read -p ">> " link
+if [[ $link == "" ]];then
+menu
+else
+link2=$(echo $link | cut -d "/" -f3)
+links
+echo -e "\n
+$v[$b*$v]$b Google: $google\n
+$v[$b*$v]$b Facebook: $fb\n
+$v[$b*$v]$b Twitter: $twi\n
+$v[$b*$v]$b YouTube: $you\n
+$v[$b*$v]$b TikTok: $tik\n
+$v[$b*$v]$b Gmail: $mail\n
+$v[$b*$v]$b Instagram: $insta\n
+\n$v[$b*$v]$b Deseas Volver a intentarlo? (S/N)"
+read -p ">> " cn
+if [[ $cn == "s" || $cn == "S" ]];then
+menu
+elif [[ $cn == "n" || $cn == "N" ]];then
+exit 1
+else
+echo -e "$r[!]$b Opcion invalida"
+sleep 1
+menu
+fi
+fi
+}
+menu
+
+
+
+
